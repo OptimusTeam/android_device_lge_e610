@@ -56,26 +56,6 @@ BOARD_USES_MMCUTILS := true
 BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 
-## Webkit
-PRODUCT_PACKAGES += \
-    libwebcore	
-
-# (classic webview provider)
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.webview.provider=classic
-
-ENABLE_WEBGL := true
-PRODUCT_PREBUILT_WEBVIEWCHROMIUM := yes
-TARGET_ARCH_LOWMEM := true
-JS_ENGINE	:= v8
-HTTP	:= chrome
-WITH_JIT	:= true
-ENABLE_JSC_JIT	:= true
-TARGET_WEBKIT_USE_MORE_MEMORY	:= true
-TARGET_FORCE_CPU_UPLOAD	:= true
-TARGET_USES_JELLYBEAN_BASEBAND := true
-TARGET_EXTERNAL_APPS = sdcard1
-
 # trebuchet
 PRODUCT_PACKAGES += \
     Trebuchet
