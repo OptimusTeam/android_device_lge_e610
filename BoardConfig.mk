@@ -79,7 +79,3 @@ TARGET_EXTERNAL_APPS = sdcard1
 # trebuchet
 PRODUCT_PACKAGES += \
     Trebuchet
-
-# Unified Device
-TARGET_UNIFIED_DEVICE := true
-TARGET_OTA_ASSERT_DEVICE := E610,e610,E612,e612,E617,e617,m4
