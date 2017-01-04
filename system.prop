@@ -2,7 +2,6 @@
 # system.prop for e610
 #
 
-ro.boot.selinux=disabled
 ro.sf.lcd_density=160
 wifi.supplicant_scan_interval=180
 wifi.softap.interface=eth0
