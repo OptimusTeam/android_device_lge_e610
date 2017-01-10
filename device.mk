@@ -7,7 +7,7 @@ DEVICE_PACKAGE_OVERLAYS += device/lge/e610/overlay
 
 $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
 
-PRODUCT_AAPT_CONFIG := normal mdpi hdpi
+PRODUCT_AAPT_CONFIG := normal mdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
 
 PRODUCT_COPY_FILES += \

@@ -8,7 +8,7 @@ LGE_PROJECT := l
 TARGET_BOOTLOADER_BOARD_NAME := e610
 TARGET_ARCH := arm
 
-BOARD_KERNEL_CMDLINE := androidboot.hardware=m4 lge.signed_image=false
+BOARD_KERNEL_CMDLINE := androidboot.hardware=m4 androidboot.selinux=permissive lge.signed_image=false
 
 TARGET_PREBUILT_KERNEL := device/lge/e610/kernel
 
@@ -18,9 +18,6 @@ TARGET_KERNEL_CONFIG := cyanogenmod_m4_nonfc_defconfig
 
 TARGET_RECOVERY_FSTAB := device/lge/e610/fstab.m4
 
-## We need this for the flipped screen
-BOARD_CUSTOM_GRAPHICS := ../../../device/lge/e610/recovery/graphics.c
-
 #bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/e610/bluetooth
 
@@ -28,7 +25,6 @@ COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
 USE_SET_METADATA := false
 SKIP_SET_METADATA := true
 DISABLE_OTA := true
-
 
 PRODUCT_LOCALES := en_US en_IN fr_FR it_IT es_ES et_EE de_DE nl_NL cs_CZ \
     pl_PL ja_JP zh_TW zh_CN zh_HK ru_RU ko_KR nb_NO es_US da_DK el_GR tr_TR \
@@ -48,7 +44,21 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_VOLD_MAX_PARTITIONS := 23
 TARGET_USERIMAGES_USE_EXT4 := true
-SKIP_SET_METADATA := true
+
+# TWRP
+RECOVERY_VARIANT := #omni
+ifeq ($(RECOVERY_VARIANT),omni)
+TW_INTERNAL_STORAGE_PATH := "/data/media"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
+TW_EXTERNAL_STORAGE_PATH := "/external sd"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
+TW_DEFAULT_EXTERNAL_STORAGE := true
+TW_FLASH_FROM_STORAGE := true
+TW_NO_CPU_TEMP := true
+TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
+TW_MAX_BRIGHTNESS := 225
+endif
+
 # Recovery
 DEVICE_RESOLUTION := 320x480
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
